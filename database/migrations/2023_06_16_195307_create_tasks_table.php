@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->enum('status', ['active', 'done'])->default('active');
             $table->unsignedBigInteger('employee_id');
-            
-            $table->foreign('employee_id')->references('id')->on('employees');
+
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }
